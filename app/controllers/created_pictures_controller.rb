@@ -5,6 +5,7 @@ class CreatedPicturesController < ApplicationController
 
   def new
     @created_picture = CreatedPicture.new
+    @base_pictures = BasePicture.all
   end
 
   def create

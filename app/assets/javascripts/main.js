@@ -30,6 +30,7 @@ $(function() {
 
 $(function() {
 	$(".select").click(function (){
+		$('#created_picture_base_picture_id').val($(this).data('id'));
 		selectedImg = this;
 		$(".select").css("border", "0px");
 		$("*[name="+this.name+"]").css("border", "2px solid #ff0000");

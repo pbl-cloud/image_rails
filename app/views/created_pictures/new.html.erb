@@ -1,5 +1,5 @@
 <h3>1.アップロードする画像を選択</h3>
-  
+
   <%= form_for @created_picture, html: { class: 'form created_picture-form' } do |f| %>
     <div class = "field">
       <%= f.file_field :uploaded_url %>
@@ -8,24 +8,14 @@
   <h3>2.合成先の画像を選択</h3>
     <%= f.hidden_field :base_picture_id %>
 
-  <input type="hidden" name="selectedImg" value="img1">
   <div id="bxslider">
-    <div><%= image_tag "img1.jpg", class: 'select', width: "200" %></div>
-    <div><%= image_tag "img2.jpg", class: 'select', width: "200" %></div>
-    <div><%= image_tag "img3.jpg", class: 'select', width: "200" %></div>
-    <div><%= image_tag "img4.jpg", class: 'select', width: "200" %></div>
-    <div><%= image_tag "img5.jpg", class: 'select', width: "200" %></div>
-    <div><%= image_tag "img6.jpg", class: 'select', width: "200" %></div>
-    <div><%= image_tag "img7.jpg", class: 'select', width: "200" %></div>
-    <div><%= image_tag "img8.jpg", class: 'select', width: "200" %></div>
+    <% @base_pictures.each do |picture| %>
+      <div><%= image_tag picture.url, class: 'select', width: '200', 'data-id' => picture.id %></div>
+    <% end %>
   </div>
   <div class="align center">
     <img id="selected" src="img1.jpg" width="400">
     <!-- <img id="hovering" width="400">-->
   </div>
-
-
-
-  
   <%= f.submit "合成" %>
 <% end %>
