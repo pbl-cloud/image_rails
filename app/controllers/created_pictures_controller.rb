@@ -1,5 +1,5 @@
 # app/controllers/created_pictures_controller.rb
-class CreatedsPicturesController < ApplicationController
+class CreatedPicturesController < ApplicationController
   def index
   end
 
