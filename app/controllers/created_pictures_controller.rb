@@ -4,6 +4,7 @@ class CreatedPicturesController < ApplicationController
   end
 
   def new
+    @created_picture = CreatedPicture.new
   end
 
   def create
