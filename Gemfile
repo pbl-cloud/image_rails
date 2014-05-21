@@ -20,5 +20,4 @@ end
 
 group :production do
   gem 'mysql'
-  gem 'thin'
 end
