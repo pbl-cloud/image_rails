@@ -1,4 +1,9 @@
 <h3>1.アップロードする画像を選択</h3>
+  <% if user_signed_in? %>
+    <p>Logged in as <%= current_user.username %></p>
+  <% else %>
+    <%= link_to 'Login with twitter', user_omniauth_authorize_path(provider: :twitter) %>
+  <% end %>
 
   <%= form_for @created_picture, html: { class: 'form created_picture-form' } do |f| %>
     <div class = "field">

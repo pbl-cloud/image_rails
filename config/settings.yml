@@ -1,0 +1,4 @@
+auth:
+  twitter:
+    api_key: OVVERRIDE_ME_IN_LOCAL_SETTINGS
+    api_secret: OVVERRIDE_ME_IN_LOCAL_SETTINGS

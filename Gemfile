@@ -14,6 +14,11 @@ gem 'bxslider-rails'
 
 gem 'spring',        group: :development
 
+gem 'devise'
+gem 'omniauth-twitter'
+
+gem 'rails_config'
+
 group :development, :test do
   gem 'sqlite3'
   gem 'jazz_hands'

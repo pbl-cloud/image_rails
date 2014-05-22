@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140516095005) do
+ActiveRecord::Schema.define(version: 20140522055557) do
 
   create_table "base_pictures", force: true do |t|
     t.string   "url"
@@ -28,5 +28,21 @@ ActiveRecord::Schema.define(version: 20140516095005) do
   end
 
   add_index "created_pictures", ["base_picture_id"], name: "index_created_pictures_on_base_picture_id"
+
+  create_table "users", force: true do |t|
+    t.string   "username",            default: "", null: false
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",       default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true
 
 end
