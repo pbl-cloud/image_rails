@@ -1,15 +1,20 @@
-h3 1.アップロードする画像を選択
-
 = form_for @created_picture, html: { class: 'form created_picture-form' } do |f|
-  .field
-    = f.file_field :uploaded_url
+  .row
+    h3 1.アップロードする画像を選択
 
-  h3 2.合成先の画像を選択
-  = f.hidden_field :base_picture_id
-  #bxslider
-    - @base_pictures.each do |picture|
-      .picture
-        = image_tag picture.url, class: 'select', width: '200', 'data-id' => picture.id
-  .align.center
-    img#selected src="img1.jpg" width="400"
-  = f.submit "合成"
+    .field
+      = f.file_field :uploaded_url, class: 'file'
+
+  .row
+    h3 2.合成先の画像を選択
+    = f.hidden_field :base_picture_id
+    #bxslider
+      - @base_pictures.each do |picture|
+        .picture
+          = image_tag picture.url, class: 'select', width: '200', 'data-id' => picture.id
+  .row
+    .small-offset-4.small-4.columns
+      = image_tag @base_pictures.first.url, id: 'selected'
+  .row
+    .small-offset-5.small-3.columns
+      = f.submit "合成", class: 'button'
