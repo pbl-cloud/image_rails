@@ -1,17 +1,16 @@
 # == Schema Information
 #
-# Table name: created_pictures
+# Table name: process_image_tasks
 #
 #  id              :integer          not null, primary key
 #  uploaded_image  :string(255)
-#  created_image   :string(255)
 #  base_picture_id :integer
 #  created_at      :datetime
 #  updated_at      :datetime
 #  user_id         :integer
 #
 
-class CreatedPicture < ActiveRecord::Base
+class ProcessImageTask < ActiveRecord::Base
   include Hamecomic
 
   belongs_to :user
@@ -23,6 +22,8 @@ class CreatedPicture < ActiveRecord::Base
 
   def process_image
     images = make_comic(self.uploaded_image.path, self.mode)
+    # FIXME: all images are the same
+    # TODO: upload processed images and save URL to DB
     images.each_with_index do |img, i|
       img.save("img-#{i}.jpg")
     end

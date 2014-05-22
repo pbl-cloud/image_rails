@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/pbl-cloud/hamecomic.git
-  revision: f78ca788806d8c8834f585e4164676719abc5444
+  revision: d7d2f301474d087fa438962d0acba02f558430c3
   specs:
     hamecomic (0.1.0)
       ruby-opencv (~> 0.0)

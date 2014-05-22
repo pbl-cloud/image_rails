@@ -8,7 +8,7 @@ nav.top-bar data-topbar=""
     .top-bar-section
       ul.right
         - if user_signed_in?
-          li = link_to '新規合成', new_created_picture_path
+          li = link_to '新規合成', new_process_image_task_path
           li = link_to 'ログアウト', logout_path, method: :delete
         - else
           li.active = link_to 'Twitterでログイン', user_omniauth_authorize_path(provider: :twitter)

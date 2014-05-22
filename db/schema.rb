@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140522193552) do
+ActiveRecord::Schema.define(version: 20140522200329) do
 
   create_table "base_pictures", force: true do |t|
     t.string   "url"
@@ -19,18 +19,6 @@ ActiveRecord::Schema.define(version: 20140522193552) do
     t.datetime "updated_at"
     t.string   "mode"
   end
-
-  create_table "created_pictures", force: true do |t|
-    t.string   "uploaded_image"
-    t.string   "created_image"
-    t.integer  "base_picture_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-  end
-
-  add_index "created_pictures", ["base_picture_id"], name: "index_created_pictures_on_base_picture_id"
-  add_index "created_pictures", ["user_id"], name: "index_created_pictures_on_user_id"
 
   create_table "delayed_jobs", force: true do |t|
     t.integer  "priority",   default: 0, null: false
@@ -47,6 +35,17 @@ ActiveRecord::Schema.define(version: 20140522193552) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
+
+  create_table "process_image_tasks", force: true do |t|
+    t.string   "uploaded_image"
+    t.integer  "base_picture_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "process_image_tasks", ["base_picture_id"], name: "index_process_image_tasks_on_base_picture_id"
+  add_index "process_image_tasks", ["user_id"], name: "index_process_image_tasks_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "username",            default: "", null: false

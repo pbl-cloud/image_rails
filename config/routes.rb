@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  root 'created_pictures#new'
+  root 'process_image_tasks#new'
 
-  resources :created_pictures
+  resources :process_image_tasks
 
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
