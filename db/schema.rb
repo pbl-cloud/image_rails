@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140522191649) do
+ActiveRecord::Schema.define(version: 20140522193006) do
 
   create_table "base_pictures", force: true do |t|
     t.string   "url"
@@ -21,14 +21,16 @@ ActiveRecord::Schema.define(version: 20140522191649) do
   end
 
   create_table "created_pictures", force: true do |t|
-    t.string   "uploaded_url"
-    t.string   "created_url"
+    t.string   "uploaded_image"
+    t.string   "created_image"
     t.integer  "base_picture_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   add_index "created_pictures", ["base_picture_id"], name: "index_created_pictures_on_base_picture_id"
+  add_index "created_pictures", ["user_id"], name: "index_created_pictures_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "username",            default: "", null: false

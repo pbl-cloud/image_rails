@@ -24,6 +24,8 @@ gem 'slim-rails'
 
 gem 'foundation-rails'
 
+gem 'carrierwave'
+
 gem 'hamecomic', git: 'https://github.com/pbl-cloud/hamecomic.git'
 
 group :development, :test do
