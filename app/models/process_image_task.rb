@@ -23,9 +23,18 @@ class ProcessImageTask < ActiveRecord::Base
   def process_image
     images = make_comic(self.uploaded_image.path, self.mode)
     # FIXME: all images are the same
-    # TODO: upload processed images and save URL to DB
-    images.each_with_index do |img, i|
-      img.save("img-#{i}.jpg")
+    Dir.mktmpdir do |dir|
+      images.each_with_index do |img, i|
+        path = File.join(dir, "img-#{i}.jpg")
+        img.save(path)
+        # TODO: save original image URL as well
+        comic_image = ComicImage.new(
+          user_id: self.user_id,
+          base_picture_id: self.base_picture_id
+        )
+        comic_image.composite_image = File.open(path)
+        comic_image.save!
+      end
     end
   end
   handle_asynchronously :process_image

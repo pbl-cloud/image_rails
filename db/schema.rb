@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140522200329) do
+ActiveRecord::Schema.define(version: 20140522201509) do
 
   create_table "base_pictures", force: true do |t|
     t.string   "url"
@@ -19,6 +19,18 @@ ActiveRecord::Schema.define(version: 20140522200329) do
     t.datetime "updated_at"
     t.string   "mode"
   end
+
+  create_table "comic_images", force: true do |t|
+    t.string   "original_image"
+    t.integer  "base_picture_id"
+    t.string   "composite_image"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comic_images", ["base_picture_id"], name: "index_comic_images_on_base_picture_id"
+  add_index "comic_images", ["user_id"], name: "index_comic_images_on_user_id"
 
   create_table "delayed_jobs", force: true do |t|
     t.integer  "priority",   default: 0, null: false
