@@ -75,6 +75,9 @@ GEM
     execjs (2.0.2)
     ffi (1.9.3)
     formatador (0.2.4)
+    foundation-rails (5.2.2.0)
+      railties (>= 3.1.0)
+      sass (>= 3.2.0)
     grit (2.5.0)
       diff-lcs (~> 1.1)
       mime-types (~> 1.15)
@@ -250,6 +253,7 @@ DEPENDENCIES
   bxslider-rails
   coffee-rails (~> 4.0.0)
   devise
+  foundation-rails
   guard-livereload
   jazz_hands
   jbuilder (~> 2.0)

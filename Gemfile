@@ -21,6 +21,8 @@ gem 'rails_config'
 
 gem 'slim-rails'
 
+gem 'foundation-rails'
+
 group :development, :test do
   gem 'sqlite3'
   gem 'jazz_hands'

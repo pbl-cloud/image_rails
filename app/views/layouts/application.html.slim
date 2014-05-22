@@ -1,11 +1,7 @@
 doctype html
-html
-  head
-    meta charset="utf-8"
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    = csrf_meta_tags
-    title 画像合成
+html lang="ja"
+  == render 'layouts/head'
   body
-    #wrapper.align.center
+    == render 'layouts/top_bar'
+    .container.align.center
       == yield

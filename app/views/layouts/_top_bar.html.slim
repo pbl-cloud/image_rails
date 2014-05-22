@@ -1,0 +1,13 @@
+nav.top-bar data-topbar=""
+  .container.align.center
+    ul.title-area
+      li.name
+        h1 = link_to '画像合成', root_path
+      li.toggle-topbar.menu-icon
+        = link_to '', '#'
+    .top-bar-section
+      ul.right
+        - if user_signed_in?
+          li = link_to 'ログアウト', logout_path, method: :delete
+        - else
+          li.active = link_to 'Twitterでログイン', user_omniauth_authorize_path(provider: :twitter)
