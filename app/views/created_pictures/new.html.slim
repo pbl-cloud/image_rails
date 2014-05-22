@@ -3,11 +3,11 @@
     h3 1.アップロードする画像を選択
 
     .field
-      = f.file_field :uploaded_url, class: 'file'
+      = f.file_field :uploaded_image, class: 'file'
 
   .row
     h3 2.合成先の画像を選択
-    = f.hidden_field :base_picture_id
+    = f.hidden_field :base_picture_id, value: @base_pictures.first.id
     #bxslider
       - @base_pictures.each do |picture|
         .picture
