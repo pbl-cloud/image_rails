@@ -1,0 +1,19 @@
+h3 1.アップロードする画像を選択
+- if user_signed_in?
+  p = "Logged in as #{current_user.username}"
+- else
+  = link_to 'Login with twitter', user_omniauth_authorize_path(provider: :twitter)
+
+= form_for @created_picture, html: { class: 'form created_picture-form' } do |f|
+  .field
+    = f.file_field :uploaded_url
+
+  h3 2.合成先の画像を選択
+  = f.hidden_field :base_picture_id
+  #bxslider
+    - @base_pictures.each do |picture|
+      .picture
+        = image_tag picture.url, class: 'select', width: '200', 'data-id' => picture.id
+  .align.center
+    img#selected src="img1.jpg" width="400"
+  = f.submit "合成"

@@ -19,6 +19,8 @@ gem 'omniauth-twitter'
 
 gem 'rails_config'
 
+gem 'slim-rails'
+
 group :development, :test do
   gem 'sqlite3'
   gem 'jazz_hands'
