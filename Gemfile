@@ -16,6 +16,12 @@ gem 'spring',        group: :development
 
 group :development, :test do
   gem 'sqlite3'
+  gem 'jazz_hands'
+end
+
+group :development do
+  gem 'annotate'
+  gem 'guard-livereload', require: false
 end
 
 group :production do
