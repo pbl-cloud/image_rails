@@ -15,4 +15,8 @@ class CreatedPicture < ActiveRecord::Base
   belongs_to :user
 
   mount_uploader :uploaded_image, MixinPictureUploader
+
+  def process_image
+  end
+  handle_asynchronously :process_image
 end

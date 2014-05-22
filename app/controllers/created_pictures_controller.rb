@@ -10,7 +10,7 @@ class CreatedPicturesController < ApplicationController
   def create
     @created_picture = current_user.created_pictures.build(picture_params)
     if @created_picture.save
-      # TODO: process image in background
+      @created_picture.process_image
       redirect_to root_path, notice: 'サブミットされた'
     else
       render :new

@@ -18,6 +18,9 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'omniauth-twitter'
 
+gem 'delayed_job_active_record'
+gem 'daemons'
+
 gem 'rails_config'
 
 gem 'slim-rails'
