@@ -24,6 +24,8 @@ gem 'slim-rails'
 
 gem 'foundation-rails'
 
+gem 'hamecomic', git: 'https://github.com/pbl-cloud/hamecomic.git'
+
 group :development, :test do
   gem 'sqlite3'
   gem 'jazz_hands'

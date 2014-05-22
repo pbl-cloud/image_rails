@@ -12,4 +12,5 @@ class CreatedPicturesController < ApplicationController
 
   def destroy
   end
+
 end
