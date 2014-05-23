@@ -29,6 +29,7 @@ gem 'foundation-rails'
 gem 'masonry-rails'
 
 gem 'carrierwave'
+gem 'cloudinary'
 
 gem 'hamecomic', git: 'https://github.com/pbl-cloud/hamecomic.git'
 

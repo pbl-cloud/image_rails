@@ -2,3 +2,7 @@ auth:
   twitter:
     api_key: API_KEY
     api_secret: API_SECRET
+
+  cloudinary:
+    api_key: API_KEY
+    api_secret: API_SECRET
