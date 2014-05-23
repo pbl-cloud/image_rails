@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   resources :process_image_tasks, only: [:new, :create]
 
-  resources :comic_images, only: [:index]
+  resources :comic_images, only: [:index] do
+    get 'my', on: :collection
+  end
 
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 

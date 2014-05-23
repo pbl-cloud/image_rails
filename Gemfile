@@ -26,6 +26,7 @@ gem 'rails_config'
 gem 'slim-rails'
 
 gem 'foundation-rails'
+gem 'masonry-rails'
 
 gem 'carrierwave'
 

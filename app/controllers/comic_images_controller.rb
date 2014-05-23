@@ -1,12 +1,15 @@
 class ComicImagesController < ApplicationController
   before_filter :find_comic_image
 
+  before_action :authenticate_user!, only: [:my]
+
   def index
-    if user_signed_in? && params[:q] != 'all'
-      @comic_images = current_user.comic_images
-    else
-      @comic_images = ComicImage.all
-    end
+    @comic_images = ComicImage.all
+  end
+
+  def my
+    @comic_images = current_user.comic_images
+    render :index
   end
 
   private

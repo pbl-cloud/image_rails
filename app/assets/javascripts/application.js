@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require foundation
 //= require bxslider
+//= require masonry/jquery.masonry
 //= require turbolinks
 //= require_tree .
 
