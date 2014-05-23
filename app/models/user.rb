@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   devise :omniauthable, omniauth_providers: [:twitter]
 
   has_many :tasks, class_name: 'ProcessImageTask'
+  has_many :comic_images
 
 
   def self.find_for_twitter_oauth(auth)

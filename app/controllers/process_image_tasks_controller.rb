@@ -1,4 +1,6 @@
 class ProcessImageTasksController < ApplicationController
+  before_action :authenticate_user!
+
   def index
   end
 
@@ -15,9 +17,6 @@ class ProcessImageTasksController < ApplicationController
     else
       render :new
     end
-  end
-
-  def destroy
   end
 
   private
