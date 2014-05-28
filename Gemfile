@@ -20,6 +20,7 @@ gem 'omniauth-twitter'
 
 gem 'delayed_job_active_record'
 gem 'daemons'
+gem 'httparty'
 
 gem 'rails_config'
 

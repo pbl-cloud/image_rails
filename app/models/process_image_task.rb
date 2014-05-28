@@ -23,17 +23,30 @@ class ProcessImageTask < ActiveRecord::Base
   def process_image
     Dir.mktmpdir do |dir|
       path = File.join(dir, "comic-%d.jpg")
-      images = make_comic(self.uploaded_image.path, self.mode, output: path)
-
+      base_file = download_file(dir)
+      images = make_comic(base_file, self.mode, output: path)
       images.count.times do |i|
         comic_image = ComicImage.new(
           user_id: self.user_id,
-          base_picture_id: self.base_picture_id
+          base_picture_id: self.base_picture_id,
+          original_image: self.uploaded_image.url
         )
         comic_image.composite_image = File.open(path % i)
         comic_image.save!
       end
     end
+    self.destroy!
   end
   handle_asynchronously :process_image
+
+  private
+  def download_file(dir)
+    image_url = self.uploaded_image.url
+    file_path = File.join(dir, File.basename(image_url))
+    response = HTTParty.get(image_url)
+    File.open(file_path, 'wb') do |file|
+      file.write(response.body)
+    end
+    file_path
+  end
 end
