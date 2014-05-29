@@ -1,7 +1,9 @@
 auth:
+  devise:
+    secret_key: OVERRIDE_ME_IN_LOCAL_SETTINGS
   twitter:
-    api_key: OVVERRIDE_ME_IN_LOCAL_SETTINGS
+    api_key: OVERRIDE_ME_IN_LOCAL_SETTINGS
     api_secret: OVVERRIDE_ME_IN_LOCAL_SETTINGS
   cloudinary:
-    api_key: OVVERRIDE_ME_IN_LOCAL_SETTINGS
+    api_key: OVERRIDE_ME_IN_LOCAL_SETTINGS
     api_secret: OVVERRIDE_ME_IN_LOCAL_SETTINGS
