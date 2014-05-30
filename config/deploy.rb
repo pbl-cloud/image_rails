@@ -27,12 +27,34 @@ set :puma_conf, "#{shared_path}/config/puma.rb"
 
 namespace :deploy do
 
+  after :migrate, :seed do
+    on roles(:db) do
+      within release_path do
+        with rails_env: fetch(:rails_env) do
+          execute :rake, 'db:seed'
+        end
+      end
+    end
+  end
+
   after :publishing, 'puma:restart'
+
+  after 'puma:restart', :restart_delayed_jobs do
+    on roles(:app) do
+      within release_path do
+        with rails_env: fetch(:rails_env) do
+          execute :rake, 'delayed_job:restart'
+        end
+      end
+    end
+  end
 
   after :restart, :clear_cache do
     on roles(:web) do
       within release_path do
-        execute :rake, 'tmp:cache:clear'
+        with rails_env: fetch(:rails_env) do
+          execute :rake, 'tmp:cache:clear'
+        end
       end
     end
   end
