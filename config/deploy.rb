@@ -14,7 +14,7 @@ set :log_level, :info
 
 set :linked_files, %w{config/database.yml config/settings.local.yml config/secrets.yml}
 
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/assets}
+set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/assets}
 
 set :rails_env, 'production'
 
